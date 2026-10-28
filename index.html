@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="タップして写真を見るページです。">
+  <meta name="robots" content="noindex, nofollow">
+  <title>タップして写真を見る</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 1.25rem; box-sizing: border-box; background: #f4f4f5; color: #18181b; }
+    main { width: min(100%, 34rem); text-align: center; }
+    button { border: 0; border-radius: 999px; padding: .9rem 1.5rem; background: #2563eb; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+    button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 3px; }
+    img { display: block; width: 100%; height: auto; margin-top: 1rem; border-radius: .75rem; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>写真を受け取っています</h1>
+    <p id="hint">下のボタンを押すと写真が表示されます。</p>
+    <button id="reveal" type="button">写真を見る</button>
+    <img id="photo" alt="共有された写真" hidden>
+  </main>
+  <script>
+    const button = document.querySelector('#reveal');
+    const image = document.querySelector('#photo');
+    button.addEventListener('click', () => {
+      image.src = 'https://github.com/user-attachments/assets/cb6b2b14-947e-45d0-9b5e-735533b686db';
+      image.hidden = false;
+      button.hidden = true;
+      document.querySelector('#hint').hidden = true;
+    }, { once: true });
+  </script>
+</body>
+</html>
